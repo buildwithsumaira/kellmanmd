@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dr. Raphael Kellman MD | Pioneer of Microbiome Medicine | NYC</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<style>
+:root {
+  --navy: #0B1527;
+  --navy-mid: #111F3A;
+  --navy-light: #1A2E50;
+  --teal: #0D6E6E;
+  --teal-light: #0E8A8A;
+  --teal-glow: rgba(13,110,110,0.15);
+  --gold: #B8962E;
+  --gold-light: #CBA94A;
+  --gold-bright: #D9BC6E;
+  --gold-pale: #F9F4E7;
+  --cream: #FDFAF4;
+  --cream-dark: #F4EFE3;
+  --off-white: #F8F6F1;
+  --charcoal: #181818;
+  --text-dark: #1A1A1A;
+  --text-mid: #444;
+  --text-light: #888;
+  --white: #fff;
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Outfit', sans-serif;
+  --r: 12px;
+  --rl: 22px;
+  --shadow: 0 4px 28px rgba(11,21,39,0.09);
+  --shadow-lg: 0 24px 72px rgba(11,21,39,0.14);
+  --shadow-teal: 0 8px 32px rgba(13,110,110,0.2);
+  --shadow-gold: 0 8px 32px rgba(184,150,46,0.22);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);color:var(--text-dark);background:var(--cream);overflow-x:hidden;line-height:1.7;}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  padding:1.1rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(253,250,244,0.95);
+  backdrop-filter:blur(22px);
+  border-bottom:1px solid rgba(184,150,46,0.12);
+  transition:all 0.3s;
+}
+nav.scrolled{padding:0.65rem 3rem;box-shadow:0 2px 24px rgba(11,21,39,0.1);}
+.logo{text-decoration:none;}
+.logo-name{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--navy);display:block;line-height:1.1;letter-spacing:0.01em;}
+.logo-tag{font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal);margin-top:2px;display:block;}
+.nav-links{display:flex;align-items:center;gap:2rem;list-style:none;}
+.nav-links a{font-size:0.82rem;font-weight:500;color:var(--text-mid);text-decoration:none;letter-spacing:0.03em;transition:color 0.2s;}
+.nav-links a:hover{color:var(--navy);}
+.nav-cta{
+  background:var(--navy);color:white!important;
+  padding:0.62rem 1.6rem;border-radius:50px;font-weight:600!important;
+  letter-spacing:0.04em!important;transition:all 0.25s!important;
+  box-shadow:0 4px 18px rgba(11,21,39,0.25);
+}
+.nav-cta:hover{background:var(--teal)!important;transform:translateY(-1px);}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:1.5px;background:var(--charcoal);border-radius:2px;}
+
+/* HERO */
+#hero{
+  position:relative;min-height:100vh;display:flex;align-items:center;
+  background:var(--navy);overflow:hidden;padding-top:80px;
+}
+#hero-canvas{position:absolute;inset:0;width:100%;height:100%;}
+.hero-veil{
+  position:absolute;inset:0;
+  background:linear-gradient(130deg,rgba(11,21,39,0.92) 0%,rgba(11,21,39,0.7) 45%,rgba(11,21,39,0.25) 100%);
+}
+.hero-inner{
+  position:relative;z-index:2;
+  max-width:1280px;margin:0 auto;padding:0 3rem;
+  display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:center;
+}
+.hero-text{color:white;}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:0.75rem;margin-bottom:1.75rem;}
+.ey-line{width:36px;height:1px;background:var(--gold-light);}
+.ey-text{font-size:0.7rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold-bright);}
+h1.ht{
+  font-family:var(--font-display);
+  font-size:clamp(2.8rem,4.5vw,4.2rem);
+  font-weight:300;line-height:1.08;letter-spacing:-0.01em;margin-bottom:0.5rem;
+}
+h1.ht strong{display:block;font-weight:700;}
+h1.ht em{display:block;font-style:italic;color:var(--gold-bright);font-weight:300;}
+.hero-rule{width:52px;height:1px;background:linear-gradient(90deg,var(--teal-light),transparent);margin:1.5rem 0;}
+.hero-desc{font-size:1rem;color:rgba(255,255,255,0.65);max-width:500px;line-height:1.85;margin-bottom:2.25rem;font-weight:300;}
+.hero-btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-teal{
+  background:var(--teal);color:white;
+  padding:0.9rem 2.2rem;border-radius:50px;font-weight:600;font-size:0.88rem;
+  text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;
+  box-shadow:var(--shadow-teal);transition:all 0.25s;font-family:var(--font-body);
+  letter-spacing:0.03em;border:none;cursor:pointer;
+}
+.btn-teal:hover{background:var(--teal-light);transform:translateY(-2px);box-shadow:0 12px 36px rgba(13,110,110,0.35);}
+.btn-gold{
+  background:linear-gradient(135deg,var(--gold),var(--gold-light));
+  color:var(--navy);padding:0.9rem 2.2rem;border-radius:50px;
+  font-weight:700;font-size:0.88rem;text-decoration:none;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  box-shadow:var(--shadow-gold);transition:all 0.25s;font-family:var(--font-body);
+  letter-spacing:0.03em;border:none;cursor:pointer;
+}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(184,150,46,0.38);}
+.btn-ghost{
+  background:transparent;color:rgba(255,255,255,0.8);
+  padding:0.9rem 2.2rem;border-radius:50px;font-weight:400;font-size:0.88rem;
+  text-decoration:none;display:inline-flex;align-items:center;gap:0.5rem;
+  border:1px solid rgba(255,255,255,0.22);transition:all 0.25s;font-family:var(--font-body);
+}
+.btn-ghost:hover{background:rgba(255,255,255,0.07);border-color:rgba(255,255,255,0.45);}
+.hero-stats{display:flex;gap:2.5rem;}
+.hs-num{font-family:var(--font-display);font-size:2.3rem;font-weight:700;color:white;line-height:1;}
+.hs-num span{color:var(--gold-bright);}
+.hs-lbl{font-size:0.72rem;color:rgba(255,255,255,0.42);margin-top:0.2rem;letter-spacing:0.06em;text-transform:uppercase;}
+
+/* Hero authority card */
+.hero-card-wrap{display:flex;justify-content:flex-end;}
+.hero-card{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(184,150,46,0.2);
+  border-radius:28px;padding:2.5rem;width:370px;
+  backdrop-filter:blur(28px);
+  box-shadow:0 36px 88px rgba(0,0,0,0.4),inset 0 1px 0 rgba(255,255,255,0.05);
+  animation:floatCard 7s ease-in-out infinite;
+}
+@keyframes floatCard{
+  0%,100%{transform:rotateY(-7deg) rotateX(3deg) translateY(0);}
+  50%{transform:rotateY(-2deg) rotateX(1deg) translateY(-14px);}
+}
+.hc-badge{
+  display:inline-flex;align-items:center;gap:0.45rem;
+  font-size:0.68rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--gold-bright);margin-bottom:1rem;
+}
+.hc-badge::before{content:'';width:5px;height:5px;background:var(--gold-bright);border-radius:50%;animation:blink 2s infinite;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.hc-name{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:white;line-height:1.15;margin-bottom:0.2rem;}
+.hc-cred{font-size:0.72rem;color:rgba(255,255,255,0.45);letter-spacing:0.06em;margin-bottom:1.5rem;}
+.hc-divider{height:1px;background:rgba(255,255,255,0.08);margin-bottom:1.5rem;}
+.hc-credentials{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.5rem;}
+.hc-cred-item{
+  display:flex;align-items:center;gap:0.8rem;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:10px;padding:0.65rem 0.9rem;
+}
+.hc-cred-icon{font-size:1rem;width:26px;text-align:center;}
+.hc-cred-text{font-size:0.8rem;font-weight:500;color:rgba(255,255,255,0.82);}
+.hc-footer{display:flex;align-items:center;justify-content:space-between;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,0.07);}
+.hc-impressions{font-size:0.72rem;color:rgba(255,255,255,0.45);}
+.hc-impressions strong{color:var(--gold-bright);}
+.hc-tag{
+  background:rgba(13,110,110,0.3);border:1px solid rgba(13,110,110,0.5);
+  border-radius:50px;padding:0.28rem 0.75rem;
+  font-size:0.68rem;font-weight:600;color:#6ECFCF;letter-spacing:0.06em;
+}
+
+/* MEDIA STRIP */
+#media-strip{
+  background:var(--navy-mid);
+  padding:1.6rem 0;
+  border-top:1px solid rgba(255,255,255,0.05);
+  border-bottom:1px solid rgba(255,255,255,0.05);
+}
+.media-strip-inner{
+  max-width:1280px;margin:0 auto;padding:0 3rem;
+}
+.media-strip-label{
+  text-align:center;font-size:0.65rem;font-weight:600;
+  letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);
+  margin-bottom:1.25rem;
+}
+.media-logos{
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:0.6rem 1.5rem;
+}
+.media-logo{
+  font-size:0.82rem;font-weight:700;letter-spacing:0.04em;
+  color:rgba(255,255,255,0.38);text-transform:uppercase;
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:50px;padding:0.4rem 1rem;
+  transition:all 0.25s;white-space:nowrap;
+}
+.media-logo:hover{color:rgba(255,255,255,0.7);border-color:rgba(255,255,255,0.25);}
+
+/* TRUST BAR */
+#trust{background:var(--teal);padding:1.5rem 0;}
+.trust-inner{
+  max-width:1280px;margin:0 auto;padding:0 3rem;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.ti{display:flex;align-items:center;gap:0.7rem;flex:1;min-width:150px;justify-content:center;}
+.ti-icon{font-size:1.15rem;}
+.ti strong{font-size:0.88rem;font-weight:700;color:white;}
+.ti span{font-size:0.72rem;color:rgba(255,255,255,0.65);}
+.ti-sep{width:1px;height:28px;background:rgba(255,255,255,0.18);}
+
+/* SECTIONS */
+section{padding:6.5rem 0;}
+.container{max-width:1280px;margin:0 auto;padding:0 3rem;}
+.eyebrow{display:inline-flex;align-items:center;gap:0.65rem;font-size:0.7rem;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--teal);margin-bottom:0.85rem;}
+.ey-bar{width:28px;height:1.5px;background:var(--gold);border-radius:2px;}
+.sec-title{font-family:var(--font-display);font-size:clamp(2.2rem,3.8vw,3.1rem);font-weight:600;line-height:1.18;color:var(--charcoal);margin-bottom:1rem;letter-spacing:-0.01em;}
+.sec-sub{font-size:0.97rem;color:var(--text-mid);max-width:540px;line-height:1.8;font-weight:300;}
+.sec-hdr{margin-bottom:4rem;}
+.sec-hdr.center{text-align:center;}
+.sec-hdr.center .sec-sub{margin:0 auto;}
+
+/* WHO IS DR KELLMAN */
+#who{background:var(--cream);}
+.who-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:5.5rem;align-items:center;}
+.who-visual{position:relative;}
+.who-dark{
+  background:var(--navy);border-radius:var(--rl);
+  padding:3rem;color:white;position:relative;overflow:hidden;
+  box-shadow:var(--shadow-lg);
+}
+.who-orb1{position:absolute;top:-40px;right:-30px;width:200px;height:200px;background:radial-gradient(circle,rgba(13,110,110,0.2) 0%,transparent 70%);border-radius:50%;}
+.who-orb2{position:absolute;bottom:-30px;left:-20px;width:160px;height:160px;background:radial-gradient(circle,rgba(184,150,46,0.12) 0%,transparent 70%);border-radius:50%;}
+.who-content{position:relative;z-index:1;}
+.who-name{font-family:var(--font-display);font-size:2rem;font-weight:700;color:white;line-height:1.1;margin-bottom:0.2rem;}
+.who-deg{font-size:0.72rem;letter-spacing:0.12em;color:var(--gold-bright);margin-bottom:2rem;text-transform:uppercase;}
+.who-metrics{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:2rem;}
+.who-metric{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.1rem;}
+.wm-n{font-family:var(--font-display);font-size:1.8rem;font-weight:700;color:var(--gold-bright);line-height:1;}
+.wm-l{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:0.2rem;letter-spacing:0.05em;}
+.who-creds{display:flex;flex-direction:column;gap:0.6rem;}
+.who-cred-item{display:flex;align-items:center;gap:0.65rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;padding:0.65rem 0.9rem;font-size:0.8rem;color:rgba(255,255,255,0.75);}
+.wci-icon{font-size:0.95rem;}
+.who-float{
+  position:absolute;top:-1.5rem;right:-1.75rem;
+  background:var(--teal);border-radius:var(--r);
+  padding:1.1rem 1.4rem;box-shadow:var(--shadow-teal);text-align:center;color:white;
+}
+.wf-n{font-family:var(--font-display);font-size:1.8rem;font-weight:700;line-height:1;}
+.wf-l{font-size:0.68rem;font-weight:600;letter-spacing:0.05em;opacity:0.8;margin-top:3px;}
+.who-text .sec-sub{margin-bottom:1.75rem;}
+.who-pts{list-style:none;display:flex;flex-direction:column;gap:0.9rem;margin-bottom:2.2rem;}
+.who-pts li{display:flex;align-items:flex-start;gap:0.9rem;font-size:0.9rem;color:var(--text-mid);font-weight:300;line-height:1.65;}
+.chk{width:22px;height:22px;border-radius:50%;background:rgba(13,110,110,0.12);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:700;flex-shrink:0;margin-top:2px;}
+
+/* BOOKS */
+#books{background:var(--navy);}
+#books .sec-title{color:white;}
+#books .eyebrow{color:var(--gold-bright);}
+#books .sec-sub{color:rgba(255,255,255,0.55);}
+.books-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.book-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:var(--rl);padding:2rem;
+  transition:all 0.32s;position:relative;overflow:hidden;
+}
+.book-card:hover{background:rgba(255,255,255,0.07);transform:translateY(-5px);border-color:rgba(184,150,46,0.25);}
+.book-spine{
+  height:5px;border-radius:4px 4px 0 0;
+  margin:-2rem -2rem 1.75rem;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+}
+.book-icon{font-size:2.5rem;margin-bottom:1rem;display:block;}
+.book-title{font-family:var(--font-display);font-size:1.25rem;font-weight:700;color:white;line-height:1.25;margin-bottom:0.5rem;}
+.book-sub{font-size:0.8rem;color:rgba(255,255,255,0.45);line-height:1.65;margin-bottom:1rem;font-weight:300;}
+.book-tag{font-size:0.68rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-bright);}
+
+/* CONDITIONS */
+#conditions{background:var(--off-white);}
+.conditions-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.cond-card{
+  background:white;border-radius:var(--r);
+  padding:1.5rem;border:1px solid rgba(11,21,39,0.07);
+  box-shadow:var(--shadow);transition:all 0.3s;cursor:default;
+}
+.cond-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:rgba(13,110,110,0.2);}
+.cond-icon{font-size:1.6rem;margin-bottom:0.75rem;display:block;}
+.cond-card h3{font-family:var(--font-display);font-size:1.1rem;font-weight:600;color:var(--navy);margin-bottom:0.4rem;}
+.cond-card p{font-size:0.82rem;color:var(--text-mid);line-height:1.65;font-weight:300;}
+
+/* TREATMENTS */
+#treatments{background:var(--cream);}
+.treat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.treat-card{
+  background:white;border-radius:var(--rl);padding:2.2rem;
+  border:1px solid rgba(11,21,39,0.07);box-shadow:var(--shadow);
+  transition:all 0.35s;position:relative;overflow:hidden;
+}
+.treat-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--teal),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.35s;
+}
+.treat-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.treat-card:hover::before{transform:scaleX(1);}
+.treat-icon{width:56px;height:56px;border-radius:16px;background:rgba(13,110,110,0.08);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem;transition:background 0.3s;}
+.treat-card:hover .treat-icon{background:var(--teal);}
+.treat-card h3{font-family:var(--font-display);font-size:1.25rem;font-weight:600;color:var(--charcoal);margin-bottom:0.6rem;}
+.treat-card p{font-size:0.86rem;color:var(--text-mid);line-height:1.72;margin-bottom:1rem;font-weight:300;}
+.treat-pill{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.72rem;font-weight:600;color:var(--teal);background:rgba(13,110,110,0.08);border-radius:50px;padding:0.28rem 0.8rem;}
+
+/* PRESS */
+#press{background:var(--navy-mid);}
+#press .sec-title{color:white;}
+#press .eyebrow{color:var(--gold-bright);}
+#press .sec-sub{color:rgba(255,255,255,0.55);}
+.press-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.press-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.07);
+  border-radius:var(--rl);padding:2rem;
+  transition:all 0.3s;
+}
+.press-card:hover{background:rgba(255,255,255,0.07);transform:translateY(-4px);border-color:rgba(13,110,110,0.3);}
+.press-outlet{
+  font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--gold-bright);margin-bottom:0.75rem;
+  display:flex;align-items:center;gap:0.5rem;
+}
+.press-type{font-size:0.65rem;color:rgba(255,255,255,0.35);background:rgba(255,255,255,0.06);border-radius:50px;padding:0.18rem 0.55rem;}
+.press-headline{font-family:var(--font-display);font-size:1.05rem;font-weight:600;color:white;line-height:1.35;margin-bottom:0.65rem;}
+.press-desc{font-size:0.82rem;color:rgba(255,255,255,0.5);line-height:1.65;font-weight:300;}
+
+/* PROCESS */
+#process{background:var(--cream);}
+.process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative;}
+.process-row::before{content:'';position:absolute;top:2.75rem;left:12%;right:12%;height:1px;background:linear-gradient(90deg,rgba(13,110,110,0.2),rgba(13,110,110,0.05));z-index:0;}
+.p-step{text-align:center;padding:0 0.5rem;z-index:1;position:relative;}
+.p-num{width:56px;height:56px;border-radius:50%;background:white;border:1.5px solid rgba(13,110,110,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--teal);box-shadow:var(--shadow);transition:all 0.3s;position:relative;z-index:2;}
+.p-step:hover .p-num{background:var(--teal);color:white;border-color:var(--teal);transform:scale(1.08);}
+.p-step h4{font-family:var(--font-display);font-size:1.15rem;font-weight:600;color:var(--charcoal);margin-bottom:0.5rem;}
+.p-step p{font-size:0.83rem;color:var(--text-light);line-height:1.7;font-weight:300;}
+
+/* TESTIMONIALS */
+#testimonials{background:var(--off-white);}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:3.5rem;}
+.testi{background:white;border-radius:var(--rl);padding:2.2rem;box-shadow:var(--shadow);border:1px solid rgba(11,21,39,0.06);transition:all 0.3s;position:relative;}
+.testi:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.testi::before{content:'\201C';position:absolute;top:1rem;right:1.5rem;font-family:var(--font-display);font-size:5rem;line-height:1;color:rgba(13,110,110,0.08);font-weight:700;pointer-events:none;}
+.t-stars{color:var(--gold);font-size:0.85rem;letter-spacing:2px;margin-bottom:1rem;}
+.t-text{font-size:0.9rem;color:var(--text-mid);line-height:1.8;margin-bottom:1.5rem;font-style:italic;font-weight:300;}
+.t-auth{display:flex;align-items:center;gap:0.75rem;}
+.t-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--teal),var(--gold));display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:0.85rem;flex-shrink:0;}
+.t-name{font-weight:600;font-size:0.88rem;color:var(--charcoal);}
+.t-src{font-size:0.72rem;color:var(--text-light);}
+
+/* OFFER */
+#offer{
+  background:linear-gradient(145deg,var(--navy) 0%,var(--navy-light) 60%,var(--teal) 100%);
+  color:white;text-align:center;padding:6rem 0;position:relative;overflow:hidden;
+}
+#offer::before{content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(13,110,110,0.12) 0%,transparent 65%);border-radius:50%;pointer-events:none;}
+#offer .sec-title{color:white;max-width:640px;margin:0 auto 1rem;}
+#offer .eyebrow{color:var(--gold-bright);}
+.offer-sub{font-size:1rem;color:rgba(255,255,255,0.6);max-width:500px;margin:0 auto 2.75rem;line-height:1.8;font-weight:300;}
+.offer-box{display:inline-flex;flex-direction:column;align-items:center;background:rgba(255,255,255,0.07);border:1px solid rgba(184,150,46,0.3);border-radius:20px;padding:2.25rem 4rem;margin-bottom:2.75rem;backdrop-filter:blur(12px);}
+.offer-tag{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold-bright);font-weight:600;margin-bottom:0.5rem;}
+.offer-deal{font-family:var(--font-display);font-size:2rem;font-weight:700;margin-bottom:0.25rem;}
+.offer-fine{font-size:0.78rem;color:rgba(255,255,255,0.45);}
+.offer-btns{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;}
+
+/* CONTACT */
+#contact{background:var(--cream);}
+.contact-grid{display:grid;grid-template-columns:1fr 1.35fr;gap:5.5rem;align-items:start;}
+.c-info h3{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--charcoal);margin-bottom:1.6rem;}
+.c-item{display:flex;gap:1rem;margin-bottom:1.5rem;}
+.c-icon{width:46px;height:46px;border-radius:13px;background:rgba(13,110,110,0.1);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.c-item strong{display:block;font-size:0.84rem;font-weight:600;color:var(--charcoal);}
+.c-item span{font-size:0.84rem;color:var(--text-mid);line-height:1.6;font-weight:300;}
+.c-form{background:white;border-radius:var(--rl);padding:2.75rem;box-shadow:var(--shadow-lg);border:1px solid rgba(11,21,39,0.07);}
+.form-head{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:var(--charcoal);margin-bottom:1.75rem;}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.fg{margin-bottom:1.2rem;}
+.fg label{display:block;font-size:0.72rem;font-weight:600;color:var(--charcoal);margin-bottom:0.4rem;letter-spacing:0.06em;text-transform:uppercase;}
+.fg input,.fg select,.fg textarea{width:100%;padding:0.82rem 1rem;border:1.5px solid rgba(11,21,39,0.12);border-radius:10px;font-family:var(--font-body);font-size:0.9rem;color:var(--text-dark);background:var(--cream);transition:border-color 0.2s,box-shadow 0.2s;outline:none;appearance:none;font-weight:300;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px rgba(13,110,110,0.1);}
+.fg textarea{min-height:100px;resize:vertical;}
+.f-btn{width:100%;padding:1rem;background:var(--teal);color:white;border:none;border-radius:50px;font-family:var(--font-body);font-size:0.95rem;font-weight:600;cursor:pointer;transition:all 0.25s;letter-spacing:0.05em;}
+.f-btn:hover{background:var(--teal-light);transform:translateY(-2px);box-shadow:0 8px 28px rgba(13,110,110,0.3);}
+
+/* FAQ */
+#faq{background:var(--navy);}
+#faq .sec-title{color:white;}
+#faq .eyebrow{color:var(--gold-bright);}
+#faq .sec-sub{color:rgba(255,255,255,0.5);}
+.faq-wrap{max-width:800px;margin:0 auto;display:flex;flex-direction:column;gap:0.9rem;}
+.faq-item{background:rgba(255,255,255,0.04);border-radius:var(--r);border:1px solid rgba(255,255,255,0.07);overflow:hidden;}
+.faq-q{padding:1.3rem 1.6rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-weight:500;font-size:0.93rem;color:white;transition:background 0.2s;letter-spacing:0.01em;}
+.faq-q:hover{background:rgba(255,255,255,0.05);}
+.faq-icon{font-size:1.15rem;color:var(--teal-light);transition:transform 0.3s;flex-shrink:0;}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.38s ease,padding 0.2s;font-size:0.87rem;color:rgba(255,255,255,0.55);line-height:1.8;padding:0 1.6rem;font-weight:300;}
+.faq-item.open .faq-a{max-height:220px;padding:0 1.6rem 1.3rem;}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+
+/* FOOTER */
+footer{background:var(--navy);color:rgba(255,255,255,0.5);padding:4.5rem 0 2.5rem;border-top:1px solid rgba(255,255,255,0.06);}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3.5rem;}
+.footer-brand .logo-name{color:white;font-size:1.3rem;display:block;}
+.footer-brand .logo-tag{color:var(--teal-light);}
+.footer-brand p{font-size:0.82rem;line-height:1.8;max-width:260px;margin-top:1rem;font-weight:300;}
+.f-col h4{font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:white;margin-bottom:1.1rem;}
+.f-col ul{list-style:none;display:flex;flex-direction:column;gap:0.55rem;}
+.f-col a{font-size:0.82rem;color:rgba(255,255,255,0.45);text-decoration:none;transition:color 0.2s;font-weight:300;}
+.f-col a:hover{color:var(--gold-bright);}
+.footer-bottom{border-top:1px solid rgba(255,255,255,0.07);padding-top:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
+.footer-bottom p{font-size:0.78rem;}
+.f-links{display:flex;gap:1.5rem;}
+.f-links a{font-size:0.78rem;color:rgba(255,255,255,0.35);text-decoration:none;transition:color 0.2s;}
+.f-links a:hover{color:var(--gold-bright);}
+
+/* STICKY CTA */
+.s-cta{position:fixed;bottom:2rem;right:2rem;z-index:999;display:flex;flex-direction:column;gap:0.7rem;align-items:flex-end;}
+.s-btn{display:flex;align-items:center;gap:0.55rem;padding:0.65rem 1.4rem;border-radius:50px;font-size:0.84rem;font-weight:600;text-decoration:none;transition:all 0.25s;box-shadow:0 4px 22px rgba(0,0,0,0.2);font-family:var(--font-body);border:none;cursor:pointer;letter-spacing:0.03em;}
+.s-btn.call{background:var(--teal);color:white;}
+.s-btn.book{background:var(--gold);color:var(--navy);}
+.s-btn:hover{transform:translateY(-3px) scale(1.03);}
+
+/* REVEAL */
+.rv{opacity:0;transform:translateY(34px);}
+.rv.on{opacity:1;transform:translateY(0);transition:opacity 0.72s ease,transform 0.72s ease;}
+.rv-l{opacity:0;transform:translateX(-38px);}
+.rv-l.on{opacity:1;transform:translateX(0);transition:opacity 0.72s ease,transform 0.72s ease;}
+.rv-r{opacity:0;transform:translateX(38px);}
+.rv-r.on{opacity:1;transform:translateX(0);transition:opacity 0.72s ease,transform 0.72s ease;}
+
+/* RESPONSIVE */
+@media(max-width:1100px){
+  .books-grid,.conditions-grid,.treat-grid,.press-grid{grid-template-columns:1fr 1fr;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:2rem;}
+}
+@media(max-width:900px){
+  nav,nav.scrolled{padding:1rem 1.5rem;}
+  .hero-inner{grid-template-columns:1fr;gap:3rem;text-align:center;}
+  .hero-rule{margin:1.5rem auto;}
+  .hero-desc{margin:0 auto 2.25rem;}
+  .hero-btns{justify-content:center;}
+  .hero-stats{justify-content:center;}
+  .hero-card-wrap{display:none;}
+  .who-grid,.contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .process-row{grid-template-columns:1fr 1fr;}
+  .process-row::before{display:none;}
+  .who-float{display:none;}
+}
+@media(max-width:640px){
+  section{padding:4rem 0;}
+  .container{padding:0 1.5rem;}
+  .books-grid,.conditions-grid,.treat-grid,.testi-grid,.press-grid{grid-template-columns:1fr;}
+  .process-row{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .hero-stats{flex-direction:column;align-items:center;gap:1rem;}
+  .fr{grid-template-columns:1fr;}
+  .s-cta{bottom:1rem;right:1rem;}
+  .trust-inner,.media-logos{gap:0.5rem;}
+  .ti-sep{display:none;}
+  nav{padding:1rem 1.25rem;}
+  .offer-box{padding:2rem 1.5rem;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="logo">
+    <span class="logo-name">Dr. Raphael Kellman</span>
+    <span class="logo-tag">Pioneer · Microbiome Medicine · NYC</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#conditions">Conditions</a></li>
+    <li><a href="#treatments">Treatments</a></li>
+    <li><a href="#books">Books</a></li>
+    <li><a href="#press">Media</a></li>
+    <li><a href="#contact" class="nav-cta">Book Consultation</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-veil"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><div class="ey-line"></div><div class="ey-text">Midtown Manhattan · 7 W 45th St · NYC</div></div>
+      <h1 class="ht">
+        The Doctor Who
+        <strong>Finds Answers</strong>
+        <em>When Others Can't.</em>
+      </h1>
+      <div class="hero-rule"></div>
+      <p class="hero-desc">Dr. Raphael Kellman coined the term "Microbiome Medicine" and has spent 25+ years helping patients who've been dismissed, misdiagnosed, or told there's nothing wrong — heal at a foundational level.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-teal">📅 Book Consultation</a>
+        <a href="tel:+12127171118" class="btn-ghost">📞 (212) 717-1118</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hs-num">40K<span>+</span></div><div class="hs-lbl">Patients Helped</div></div>
+        <div><div class="hs-num">10<span>+</span></div><div class="hs-lbl">Bestselling Books</div></div>
+        <div><div class="hs-num">2B<span>+</span></div><div class="hs-lbl">Media Impressions</div></div>
+      </div>
+    </div>
+    <div class="hero-card-wrap">
+      <div class="hero-card">
+        <div class="hc-badge">Pioneer of Microbiome Medicine</div>
+        <div class="hc-name">Dr. Raphael Kellman</div>
+        <div class="hc-cred">MD · Albert Einstein College of Medicine</div>
+        <div class="hc-divider"></div>
+        <div class="hc-credentials">
+          <div class="hc-cred-item"><div class="hc-cred-icon">🧬</div><div class="hc-cred-text">Coined "Microbiome Medicine"</div></div>
+          <div class="hc-cred-item"><div class="hc-cred-icon">📚</div><div class="hc-cred-text">10+ Bestselling Books Published</div></div>
+          <div class="hc-cred-item"><div class="hc-cred-icon">📺</div><div class="hc-cred-text">Featured on CBS, NEWSY, CBN, SiriusXM</div></div>
+          <div class="hc-cred-item"><div class="hc-cred-icon">🌍</div><div class="hc-cred-text">Patients from around the world</div></div>
+        </div>
+        <div class="hc-footer">
+          <div class="hc-impressions"><strong>2 Billion+</strong> Media Impressions</div>
+          <div class="hc-tag">Accepting Patients</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEDIA STRIP — all real publications -->
+<div id="media-strip">
+  <div class="media-strip-inner">
+    <div class="media-strip-label">As Featured In</div>
+    <div class="media-logos">
+      <div class="media-logo">CBS News</div>
+      <div class="media-logo">NEWSY</div>
+      <div class="media-logo">SiriusXM</div>
+      <div class="media-logo">Christian Broadcasting Network</div>
+      <div class="media-logo">The Telegraph</div>
+      <div class="media-logo">Well+Good</div>
+      <div class="media-logo">Refinery29</div>
+      <div class="media-logo">Bustle</div>
+      <div class="media-logo">Bottom Line Health</div>
+      <div class="media-logo">Holistic Primary Care</div>
+      <div class="media-logo">SheKnows</div>
+      <div class="media-logo">Taste for Life</div>
+      <div class="media-logo">Closer Magazine</div>
+      <div class="media-logo">WCBS Radio</div>
+      <div class="media-logo">RadioMD</div>
+      <div class="media-logo">Australia Lifestyle Overnight</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR -->
+<div id="trust">
+  <div class="trust-inner">
+    <div class="ti"><span class="ti-icon">🧬</span><div><strong>Pioneer of Microbiome Medicine</strong><span>First doctor to recognize its power</span></div></div>
+    <div class="ti-sep"></div>
+    <div class="ti"><span class="ti-icon">📚</span><div><strong>10+ Bestselling Books</strong><span>Published by Hachette Book Group</span></div></div>
+    <div class="ti-sep"></div>
+    <div class="ti"><span class="ti-icon">👥</span><div><strong>40,000+ Patients Treated</strong><span>From across the world</span></div></div>
+    <div class="ti-sep"></div>
+    <div class="ti"><span class="ti-icon">🏥</span><div><strong>Albert Einstein College of Medicine</strong><span>Internal Medicine Training</span></div></div>
+    <div class="ti-sep"></div>
+    <div class="ti"><span class="ti-icon">📍</span><div><strong>7 W 45th St, Midtown NYC</strong><span>Mon–Thu 9:30–5 · Fri 10–2</span></div></div>
+  </div>
+</div>
+
+<!-- WHO IS DR KELLMAN -->
+<section id="who">
+  <div class="container">
+    <div class="who-grid">
+      <div class="who-visual rv-l">
+        <div class="who-dark">
+          <div class="who-orb1"></div><div class="who-orb2"></div>
+          <div class="who-content">
+            <div class="who-name">Dr. Raphael Kellman</div>
+            <div class="who-deg">MD · Functional & Integrative Medicine</div>
+            <div class="who-metrics">
+              <div class="who-metric"><div class="wm-n">25+</div><div class="wm-l">Years in Practice</div></div>
+              <div class="who-metric"><div class="wm-n">40K+</div><div class="wm-l">Patients Healed</div></div>
+              <div class="who-metric"><div class="wm-n">10+</div><div class="wm-l">Bestselling Books</div></div>
+              <div class="who-metric"><div class="wm-n">2B+</div><div class="wm-l">Media Impressions</div></div>
+            </div>
+            <div class="who-creds">
+              <div class="who-cred-item"><span class="wci-icon">🎓</span>Albert Einstein College of Medicine — MD</div>
+              <div class="who-cred-item"><span class="wci-icon">🧬</span>Coined "Microbiome Medicine" — a new field</div>
+              <div class="who-cred-item"><span class="wci-icon">📚</span>Published by Hachette Book Group</div>
+              <div class="who-cred-item"><span class="wci-icon">📺</span>CBS, NEWSY, SiriusXM, CBN & more</div>
+              <div class="who-cred-item"><span class="wci-icon">📍</span>7 W 45th St, Suite 301, New York, NY</div>
+            </div>
+          </div>
+        </div>
+        <div class="who-float">
+          <div class="wf-n">#1</div>
+          <div class="wf-l">Functional Medicine<br>Pioneer NYC</div>
+        </div>
+      </div>
+      <div class="rv-r">
+        <div class="eyebrow"><div class="ey-bar"></div>About Dr. Kellman</div>
+        <h2 class="sec-title">The Doctor Who Sees What Others Miss</h2>
+        <p class="sec-sub">Dr. Raphael Kellman is a pioneer and leader in functional and microbiome medicine who coined the term "Microbiome Medicine." For 25+ years, he has treated over 40,000 patients — many of whom came to him after years of suffering, misdiagnosis, and being told nothing was wrong.</p>
+        <ul class="who-pts">
+          <li><div class="chk">✓</div>Graduate of Albert Einstein College of Medicine — trained in Internal Medicine</li>
+          <li><div class="chk">✓</div>The first physician to recognize the profound clinical importance of the microbiome</li>
+          <li><div class="chk">✓</div>Author of 10+ bestselling books, published by Hachette Book Group worldwide</div></li>
+          <li><div class="chk">✓</div>Featured on CBS, NEWSY, SiriusXM, The Telegraph, Well+Good, and hundreds more</li>
+          <li><div class="chk">✓</div>Developed hundreds of unique treatment protocols based on microbiome health</li>
+          <li><div class="chk">✓</div>Patients travel from across the world to see him — and leave with answers</li>
+        </ul>
+        <a href="#contact" class="btn-teal" style="display:inline-flex;">Book Your Consultation →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKS — All Real -->
+<section id="books">
+  <div class="container">
+    <div class="sec-hdr center rv">
+      <div class="eyebrow"><div class="ey-bar" style="background:var(--gold-bright)"></div>Bestselling Author</div>
+      <h2 class="sec-title" style="color:white;">10+ Books That Changed<br><em style="font-style:italic;color:var(--gold-bright);">How Medicine Thinks</em></h2>
+      <p class="sec-sub">Endorsed by Mark Hyman MD, David Perlmutter MD, Christiane Northrup MD, JJ Virgin, and leading voices in functional medicine.</p>
+    </div>
+    <div class="books-grid">
+      <div class="book-card rv"><div class="book-spine"></div><span class="book-icon">🧬</span><div class="book-title">The Microbiome Diet</div><div class="book-sub">The scientifically proven way to restore your gut health and achieve permanent weight loss. The book that launched the microbiome diet movement.</div><div class="book-tag">→ Hachette Book Group · International Bestseller</div></div>
+      <div class="book-card rv"><div class="book-spine" style="background:linear-gradient(90deg,var(--gold),var(--teal))"></div><span class="book-icon">🧠</span><div class="book-title">Microbiome Breakthrough</div><div class="book-sub">Harness the power of your gut bacteria to boost your mood and heal your body — the medication-free approach to mental health.</div><div class="book-tag">→ Endorsed by Mark Hyman, MD · Cleveland Clinic</div></div>
+      <div class="book-card rv"><div class="book-spine" style="background:linear-gradient(90deg,#2E6B8A,var(--gold))"></div><span class="book-icon">🌐</span><div class="book-title">The Whole Brain</div><div class="book-sub">The microbiome solution to heal depression, anxiety, and mental fog without prescription drugs. Endorsed by Izabella Wentz, PharmD.</div><div class="book-tag">→ Hachette Book Group · Featured in Bottom Line Health</div></div>
+      <div class="book-card rv"><div class="book-spine" style="background:linear-gradient(90deg,#6B3A8A,var(--teal))"></div><span class="book-icon">🦋</span><div class="book-title">Microbiome Thyroid</div><div class="book-sub">Restore your gut and heal your hidden thyroid disease. Reveals the gut-thyroid connection most doctors never test for.</div><div class="book-tag">→ December 2021 · Microbiome Medicine Library</div></div>
+      <div class="book-card rv"><div class="book-spine" style="background:linear-gradient(90deg,var(--gold),#6B3A2A)"></div><span class="book-icon">⚖️</span><div class="book-title">Thyroid Disease</div><div class="book-sub">What you need to know to finally detect and properly treat your thyroid problem — using the TRH Stimulation Test most doctors don't offer.</div><div class="book-tag">→ Tens of thousands helped after years of misdiagnosis</div></div>
+      <div class="book-card rv"><div class="book-spine" style="background:linear-gradient(90deg,var(--teal),#2A6B4A)"></div><span class="book-icon">💊</span><div class="book-title">Matrix Healing</div><div class="book-sub">Using the power of the microbiome to heal at a foundational level — the integrative framework behind Dr. Kellman's unique diagnostic approach.</div><div class="book-tag">→ The foundation of Microbiome Medicine</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONDITIONS -->
+<section id="conditions">
+  <div class="container">
+    <div class="sec-hdr center rv">
+      <div class="eyebrow"><div class="ey-bar"></div>Conditions We Treat</div>
+      <h2 class="sec-title">We Find the Root Cause<br>When Others Give Up</h2>
+      <p class="sec-sub">Dr. Kellman specializes in complex, chronic, and unexplained conditions — the cases that have stumped other physicians for years.</p>
+    </div>
+    <div class="conditions-grid">
+      <div class="cond-card rv"><span class="cond-icon">🦠</span><h3>Long-Haul COVID-19</h3><p>Comprehensive protocols for persistent COVID symptoms including fatigue, brain fog, and immune dysregulation.</p></div>
+      <div class="cond-card rv"><span class="cond-icon">🦋</span><h3>Thyroid & Hashimoto's Disease</h3><p>Advanced thyroid testing using the TRH Stimulation Test — revealing what standard blood panels consistently miss.</p></div>
+      <div class="cond-card rv"><span class="cond-icon">🛡️</span><h3>Autoimmune Disease</h3><p>Lupus, rheumatoid arthritis, and other autoimmune conditions treated through microbiome healing and functional protocols.</p></div>
+      <div class="cond-card rv"><span class="cond-icon">🌲</span><h3>Lyme Disease</h3><p>Expert diagnosis and treatment for Lyme — including complex cases that have been missed or dismissed by other doctors.</p></div>
+      <div class="cond-card rv"><span class="cond-icon">😴</span><h3>Chronic Fatigue Syndrome</h3><p>Finding and treating the underlying causes of debilitating fatigue — from microbiome imbalance to thyroid and hormonal factors.</p></div>
+      <div class="cond-card rv"><span class="cond-icon">🧠</span><h3>Cognitive Decline & Alzheimer's</h3><p>Neurodegenerative and cognitive support through the gut-brain axis, advanced testing, and targeted microbiome therapy.</p></div>
+      <div class="cond-card rv"><span class="cond-icon">🌀</span><h3>Gastrointestinal Disorders</h3><p>SIBO, leaky gut, IBD, and chronic GI issues treated with precision microbiome diagnostics and healing protocols.</p></div>
+      <div class="cond-card rv"><span class="cond-icon">⚡</span><h3>Parkinson's Disease</h3><p>Adjunctive functional medicine support for Parkinson's, integrating microbiome and neurological approaches to improve quality of life.</p></div>
+      <div class="cond-card rv"><span class="cond-icon">🎗️</span><h3>Cancer (Adjunctive)</h3><p>Holistic post-chemo and adjunctive cancer support — enhancing the body's healing capacity alongside conventional oncology treatment.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section id="treatments">
+  <div class="container">
+    <div class="sec-hdr center rv">
+      <div class="eyebrow"><div class="ey-bar"></div>Advanced Treatments</div>
+      <h2 class="sec-title">Cutting-Edge Technology.<br>Personalised Healing.</h2>
+      <p class="sec-sub">Dr. Kellman combines evidence-based functional medicine with exclusive therapeutic technologies — unavailable in most practices.</p>
+    </div>
+    <div class="treat-grid">
+      <div class="treat-card rv"><div class="treat-icon">💉</div><h3>IV Therapy & IV Ozone</h3><p>Targeted intravenous nutrients, ozone, and UV therapy administered with precision to boost energy, fight infection, and accelerate healing at a cellular level.</p><span class="treat-pill">✦ Exclusive Protocol</span></div>
+      <div class="treat-card rv"><div class="treat-icon">🧬</div><h3>Peptide Therapy</h3><p>Biological peptides used to regulate immunity, accelerate repair, support weight loss, and restore optimal systemic function — a frontier of functional medicine.</p><span class="treat-pill">✦ Cutting-Edge Therapy</span></div>
+      <div class="treat-card rv"><div class="treat-icon">💡</div><h3>NovoTHOR Whole-Body Red Light</h3><p>Full-body photobiomodulation therapy using infrared laser technology to reduce inflammation, relieve pain, and stimulate deep cellular regeneration.</p><span class="treat-pill">✦ Exclusive Technology</span></div>
+      <div class="treat-card rv"><div class="treat-icon">🔋</div><h3>PEMF Therapy</h3><p>Pulsed electromagnetic field therapy rebalances the body's cellular energy, reduces chronic inflammation, and supports the nervous system's natural healing process.</p><span class="treat-pill">✦ Non-Invasive</span></div>
+      <div class="treat-card rv"><div class="treat-icon">🌐</div><h3>Magnesphere Therapy</h3><p>A precisely calibrated magnetic field immersion system that rebalances the autonomic nervous system — reducing stress, pain, and systemic inflammation.</p><span class="treat-pill">✦ Unique to This Practice</span></div>
+      <div class="treat-card rv"><div class="treat-icon">🔬</div><h3>Advanced Diagnostic Testing</h3><p>Genetics, inflammatory markers, saliva microbiome analysis, TRH Stimulation thyroid testing, and predictive "scientific wellness" panels that go far beyond standard labs.</p><span class="treat-pill">✦ Precision Medicine</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS — all real -->
+<section id="press">
+  <div class="container">
+    <div class="sec-hdr center rv">
+      <div class="eyebrow"><div class="ey-bar" style="background:var(--gold-bright)"></div>Media & Press</div>
+      <h2 class="sec-title">Nearly 2 Billion<br><em style="font-style:italic;color:var(--gold-bright);">Media Impressions</em></h2>
+      <p class="sec-sub">Dr. Kellman has been interviewed by hundreds of newspapers and magazines worldwide, appeared on major TV and radio, and lectured internationally.</p>
+    </div>
+    <div class="press-grid">
+      <div class="press-card rv">
+        <div class="press-outlet">CBS News <span class="press-type">TV</span></div>
+        <div class="press-headline">Could Probiotics Be The Key To Healthy, Clear Skin?</div>
+        <p class="press-desc">Dr. Kellman featured discussing the microbiome's role in skin health, weight gain, and gut bacteria imbalance — with The Microbiome Diet shown on screen.</p>
+      </div>
+      <div class="press-card rv">
+        <div class="press-outlet">NEWSY <span class="press-type">TV</span></div>
+        <div class="press-headline">Raphael Kellman on Microbiome Medicine</div>
+        <p class="press-desc">Featured interview discussing the groundbreaking science of microbiome medicine and Dr. Kellman's pioneering treatment protocols for chronic disease.</p>
+      </div>
+      <div class="press-card rv">
+        <div class="press-outlet">SiriusXM — The Perri Peltz Show <span class="press-type">Radio</span></div>
+        <div class="press-headline">Breast Cancer Awareness & Functional Medicine</div>
+        <p class="press-desc">Dr. Kellman and Kellman Wellness Center discussed integrative approaches to cancer awareness and support on this nationally syndicated SiriusXM program.</p>
+      </div>
+      <div class="press-card rv">
+        <div class="press-outlet">The Telegraph UK <span class="press-type">Press</span></div>
+        <div class="press-headline">How Gut Health is Linked to Mental Health</div>
+        <p class="press-desc">Dr. Kellman's insight on how a microbiome-friendly diet reduces anxiety and sharpens memory, featured in one of the UK's leading newspapers.</p>
+      </div>
+      <div class="press-card rv">
+        <div class="press-outlet">Well+Good <span class="press-type">Press</span></div>
+        <div class="press-headline">Inflammation Caused by Aging — "Inflamm-Aging"</div>
+        <p class="press-desc">Dr. Kellman discusses the causes and prevention of aging-related inflammation, including gut health, thyroid testing, and anti-inflammatory nutrition strategies.</p>
+      </div>
+      <div class="press-card rv">
+        <div class="press-outlet">Bottom Line Health <span class="press-type">Press</span></div>
+        <div class="press-headline">The Missing Link to Better Mood, Memory and More</div>
+        <p class="press-desc">Dr. Kellman as this month's featured author — highlighting what anyone can do to improve mood, reduce anxiety, and improve memory through the microbiome.</p>
+      </div>
+      <div class="press-card rv">
+        <div class="press-outlet">WCBS Radio <span class="press-type">Radio</span></div>
+        <div class="press-headline">Lyme Disease — Diagnosing What Others Miss</div>
+        <p class="press-desc">Dr. Kellman discusses the difficulties of diagnosing Lyme disease and the Kellman Center's unique treatment approach with host Pat Farnack of WCBS.</p>
+      </div>
+      <div class="press-card rv">
+        <div class="press-outlet">Refinery29 <span class="press-type">Press</span></div>
+        <div class="press-headline">The Time You Take Your Probiotics Matters</div>
+        <p class="press-desc">Dr. Kellman's expert guidance on probiotic timing and gut health strategy featured in one of the world's largest digital media platforms for women.</p>
+      </div>
+      <div class="press-card rv">
+        <div class="press-outlet">INTERCONNECTED Docu-Series <span class="press-type">Documentary</span></div>
+        <div class="press-headline">The Power To Heal From Within</div>
+        <p class="press-desc">Dr. Kellman featured alongside leading medical experts discussing the integral connection between the microbiome and optimal whole-body health.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="sec-hdr center rv">
+      <div class="eyebrow"><div class="ey-bar"></div>How It Works</div>
+      <h2 class="sec-title">Your Journey to Root-Cause Healing</h2>
+      <p class="sec-sub">Every patient receives a completely personalised, unhurried approach — designed to find the answers no one else has found for you.</p>
+    </div>
+    <div class="process-row">
+      <div class="p-step rv"><div class="p-num">1</div><h4>Initial Consultation</h4><p>We take the time to understand your full health journey — every symptom, every failed treatment, every dismissed concern.</p></div>
+      <div class="p-step rv"><div class="p-num">2</div><h4>Deeper Testing</h4><p>Advanced diagnostics that go far beyond standard panels — microbiome analysis, TRH thyroid testing, genetics, and inflammatory markers.</p></div>
+      <div class="p-step rv"><div class="p-num">3</div><h4>Diagnostic Expertise</h4><p>Dr. Kellman's unique ability to connect seemingly unrelated dots and identify the true root cause of your suffering.</p></div>
+      <div class="p-step rv"><div class="p-num">4</div><h4>Foundational Healing</h4><p>A personalised treatment plan that doesn't just mask symptoms — it heals your body at its foundational level.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="sec-hdr center rv">
+      <div class="eyebrow"><div class="ey-bar"></div>Patient Stories</div>
+      <h2 class="sec-title">Lives Transformed.<br>Answers Finally Found.</h2>
+      <p class="sec-sub">Patients who had been dismissed by conventional medicine for years — healed under Dr. Kellman's care.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi rv">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"Each visit leaves me more educated in health and wellness. Dr. Kellman and his staff are professional, caring and advanced in treatments that most doctors do not have. They are truly the medicine of tomorrow!"</p>
+        <div class="t-auth"><div class="t-av">AN</div><div><div class="t-name">Anonymous Patient</div><div class="t-src">Verified Review · Kellman Wellness Center</div></div></div>
+      </div>
+      <div class="testi rv">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"I've been a patient since 2015. He was the only doctor that listened to me and did not dismiss me. While under his care, I conceived twice. He is the only doctor I trust to oversee my thyroid and autoimmune issues."</p>
+        <div class="t-auth"><div class="t-av">LP</div><div><div class="t-name">Long-Term Patient</div><div class="t-src">Verified Review · 9 Years of Care</div></div></div>
+      </div>
+      <div class="testi rv">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-text">"I came in with bloating and chronic digestive pain. Dr. Kellman immediately ran a test no other doctor had done. He has slowly gotten rid of almost all of my issues. I am now treating the last of the problems causing my pain."</p>
+        <div class="t-auth"><div class="t-av">MR</div><div><div class="t-name">GI Patient</div><div class="t-src">Verified Review · Kellman Wellness Center</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OFFER -->
+<section id="offer">
+  <div class="container">
+    <div class="eyebrow rv" style="justify-content:center;"><div class="ey-bar" style="background:var(--gold-bright)"></div>First Consultation</div>
+    <h2 class="sec-title rv">Finally Get the Answers You've Been Searching For</h2>
+    <p class="offer-sub rv">Your initial consultation with Dr. Kellman is a comprehensive deep-dive into your full health history — not a 15-minute appointment. Patients travel from across the world for this level of care.</p>
+    <div class="offer-box rv">
+      <div class="offer-tag">Initial Consultation Package</div>
+      <div class="offer-deal">Comprehensive Consultation + Advanced Diagnostic Review</div>
+      <div class="offer-fine">Limited consultation slots available monthly · Call to schedule · (212) 717-1118</div>
+    </div>
+    <div class="offer-btns rv">
+      <a href="#contact" class="btn-gold">Book Your Consultation →</a>
+      <a href="tel:+12127171118" class="btn-ghost">📞 Call: (212) 717-1118</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="rv-l">
+        <div class="eyebrow"><div class="ey-bar"></div>Contact</div>
+        <h2 class="sec-title">Book Your Consultation with Dr. Kellman</h2>
+        <p style="color:var(--text-mid);margin-bottom:2rem;font-size:0.95rem;line-height:1.8;font-weight:300;">Ready to finally find the root cause of your health challenges? Reach out to schedule your initial consultation. Dr. Kellman accepts patients from across New York City and around the world.</p>
+        <div class="c-item"><div class="c-icon">📍</div><div><strong>Location</strong><span>7 West 45th Street, Suite 301<br>New York, NY 10036<br>Midtown Manhattan</span></div></div>
+        <div class="c-item"><div class="c-icon">📞</div><div><strong>Phone</strong><span><a href="tel:+12127171118" style="color:var(--teal);text-decoration:none;">(212) 717-1118</a></span></div></div>
+        <div class="c-item"><div class="c-icon">✉️</div><div><strong>Email</strong><span><a href="mailto:info@kellmanmd.com" style="color:var(--teal);text-decoration:none;">info@kellmanmd.com</a></span></div></div>
+        <div class="c-item"><div class="c-icon">🕐</div><div><strong>Hours</strong><span>Monday–Thursday: 9:30 AM – 5:00 PM<br>Friday: 10:00 AM – 2:00 PM<br>Saturday & Sunday: Closed</span></div></div>
+        <div class="c-item"><div class="c-icon">🚇</div><div><strong>Getting Here</strong><span>B/D/F/M at 42nd St–Bryant Park<br>7 at 5th Ave · N/Q/R/W at 49th St</span></div></div>
+      </div>
+      <div class="c-form rv-r">
+        <div class="form-head">Request a Consultation</div>
+        <div class="fr">
+          <div class="fg"><label>First Name</label><input type="text" placeholder="Jane"></div>
+          <div class="fg"><label>Last Name</label><input type="text" placeholder="Smith"></div>
+        </div>
+        <div class="fg"><label>Phone Number</label><input type="tel" placeholder="(212) 000-0000"></div>
+        <div class="fg"><label>Email Address</label><input type="email" placeholder="jane@email.com"></div>
+        <div class="fg"><label>Primary Concern</label>
+          <select>
+            <option value="">What brings you to Dr. Kellman?</option>
+            <option>Long-Haul COVID / Unexplained Fatigue</option>
+            <option>Thyroid / Hashimoto's Disease</option>
+            <option>Autoimmune Condition</option>
+            <option>Lyme Disease</option>
+            <option>Chronic Fatigue Syndrome</option>
+            <option>Cognitive Decline / Brain Fog</option>
+            <option>Gastrointestinal / SIBO / Leaky Gut</option>
+            <option>Cancer Support (Adjunctive)</option>
+            <option>Weight & Metabolic Issues</option>
+            <option>Mental Health / Anxiety / Depression</option>
+            <option>Unexplained Symptoms — No Answers Yet</option>
+            <option>IV Therapy / Peptides / Technology Treatments</option>
+          </select>
+        </div>
+        <div class="fg"><label>Tell Us Your Story</label><textarea placeholder="Briefly describe your health history, symptoms, and what you've tried so far. The more detail you share, the better we can prepare for your consultation."></textarea></div>
+        <button class="f-btn">Request Consultation →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="sec-hdr center rv">
+      <div class="eyebrow"><div class="ey-bar" style="background:var(--gold-bright)"></div>FAQ</div>
+      <h2 class="sec-title" style="color:white;">Common Questions</h2>
+      <p class="sec-sub">Everything you need to know before your first visit with Dr. Kellman.</p>
+    </div>
+    <div class="faq-wrap">
+      <div class="faq-item rv"><div class="faq-q">What makes Dr. Kellman different from other functional medicine doctors? <span class="faq-icon">+</span></div><div class="faq-a">Dr. Kellman pioneered the field of Microbiome Medicine — he coined the term and developed its clinical application before most physicians had heard of it. His combination of deep diagnostic expertise, exclusive therapeutic technologies (NovoTHOR, PEMF, Magnesphere, IV Ozone), and the ability to connect complex, seemingly unrelated symptoms makes him uniquely positioned to help patients others cannot.</div></div>
+      <div class="faq-item rv"><div class="faq-q">I've been to many doctors and no one has found the cause. Can Dr. Kellman help? <span class="faq-icon">+</span></div><div class="faq-a">This is exactly who Dr. Kellman specializes in. The majority of his patients come to him after years of suffering, multiple misdiagnoses, or being told nothing is wrong. Using advanced testing including microbiome analysis, TRH thyroid stimulation, genetics, and inflammatory markers — he consistently finds what standard medicine misses.</div></div>
+      <div class="faq-item rv"><div class="faq-q">What is Microbiome Medicine? <span class="faq-icon">+</span></div><div class="faq-a">Microbiome Medicine is a field Dr. Kellman pioneered, recognizing the gut's ecosystem of bacteria as a central orchestrator of virtually all the body's systems. Almost every chronic disease — from autoimmune conditions to cognitive decline to thyroid disease — has a microbiome component. By healing the microbiome first, the body begins to heal itself naturally and foundationally.</div></div>
+      <div class="faq-item rv"><div class="faq-q">Does Dr. Kellman accept insurance? <span class="faq-icon">+</span></div><div class="faq-a">Dr. Kellman does accept certain insurance plans. We recommend calling our office at (212) 717-1118 before your visit to verify your specific coverage. We also offer consultation packages for patients outside of insurance who are seeking his specialized expertise.</div></div>
+      <div class="faq-item rv"><div class="faq-q">Do you treat patients from outside New York? <span class="faq-icon">+</span></div><div class="faq-a">Yes. Dr. Kellman has patients from across the United States and internationally. Many patients travel to see him specifically because his level of expertise and diagnostic capability is unavailable in their home regions. We can discuss remote consultation options where clinically appropriate.</div></div>
+      <div class="faq-item rv"><div class="faq-q">What is the TRH Stimulation Test? <span class="faq-icon">+</span></div><div class="faq-a">The TRH Stimulation Test is one of the most important diagnostic tools for thyroid disease — and one that most doctors, even in functional medicine, do not offer. Standard thyroid blood panels frequently miss low thyroid function. Dr. Kellman's precise use of the TRH test has transformed the lives of countless patients who were told their thyroid was "normal" but continued to suffer.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-name" style="font-family:'Cormorant Garamond',serif;font-weight:700;font-size:1.25rem;color:white;display:block;">Dr. Raphael Kellman</span>
+        <span class="logo-tag" style="font-size:0.62rem;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--teal-light);display:block;margin-top:2px;">MD · Pioneer of Microbiome Medicine</span>
+        <p>Healing at the foundational level. For 25+ years, Dr. Kellman has found the answers that eluded other physicians — and helped 40,000+ patients reclaim their health.</p>
+      </div>
+      <div class="f-col">
+        <h4>Conditions</h4>
+        <ul>
+          <li><a href="#conditions">Long-Haul COVID</a></li>
+          <li><a href="#conditions">Thyroid Disease</a></li>
+          <li><a href="#conditions">Autoimmune</a></li>
+          <li><a href="#conditions">Lyme Disease</a></li>
+          <li><a href="#conditions">Chronic Fatigue</a></li>
+          <li><a href="#conditions">Cognitive Decline</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="#treatments">IV & Ozone Therapy</a></li>
+          <li><a href="#treatments">Peptide Therapy</a></li>
+          <li><a href="#treatments">NovoTHOR Red Light</a></li>
+          <li><a href="#treatments">PEMF Therapy</a></li>
+          <li><a href="#treatments">Magnesphere</a></li>
+          <li><a href="#treatments">Advanced Diagnostics</a></li>
+        </ul>
+      </div>
+      <div class="f-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="tel:+12127171118">(212) 717-1118</a></li>
+          <li><a href="mailto:info@kellmanmd.com">info@kellmanmd.com</a></li>
+          <li><a href="#contact">Book Consultation</a></li>
+          <li><a href="#">7 W 45th St, Suite 301</a></li>
+          <li><a href="#">New York, NY 10036</a></li>
+          <li><a href="#books">Books by Dr. Kellman</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Dr. Raphael Kellman MD · Medicine of Tomorrow P.C. · All rights reserved.</p>
+      <div class="f-links">
+        <a href="#">Privacy Policy</a><a href="#">Terms</a><a href="#">Sitemap</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div class="s-cta">
+  <a href="tel:+12127171118" class="s-btn call">📞 Call Now</a>
+  <a href="#contact" class="s-btn book">📅 Book Consultation</a>
+</div>
+
+<script>
+// HERO CANVAS — Microbiome/DNA themed
+// Floating DNA helix nodes + cellular network + pulse rings
+const canvas = document.getElementById('hero-canvas');
+const ctx = canvas.getContext('2d');
+function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resize();
+window.addEventListener('resize', resize, { passive: true });
+
+// Network nodes — cellular/microbiome feel
+const nodes = Array.from({ length: 55 }, () => ({
+  x: Math.random() * window.innerWidth,
+  y: Math.random() * window.innerHeight,
+  vx: (Math.random() - 0.5) * 0.3,
+  vy: (Math.random() - 0.5) * 0.3,
+  r: 1.5 + Math.random() * 2.5,
+  ph: Math.random() * Math.PI * 2,
+  color: Math.random() > 0.6 ? '13,110,110' : '184,150,46'
+}));
+
+// DNA helix points floating through
+const helixPts = Array.from({ length: 18 }, (_, i) => ({
+  offset: i / 18,
+  phase: Math.random() * Math.PI * 2,
+  speed: 0.004 + Math.random() * 0.003
+}));
+
+// Pulse rings
+const rings = [
+  { r: 0, max: 260, spd: 0.55, tick: 0, delay: 0,   cx: 0.7, cy: 0.45, color: '13,110,110' },
+  { r: 0, max: 200, spd: 0.7,  tick: 0, delay: 60,  cx: 0.7, cy: 0.45, color: '184,150,46' },
+  { r: 0, max: 320, spd: 0.45, tick: 0, delay: 120, cx: 0.7, cy: 0.45, color: '13,110,110' },
+];
+
+let mx = window.innerWidth * 0.5, my = window.innerHeight * 0.5;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+
+let t = 0;
+(function frame() {
+  requestAnimationFrame(frame);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  t++;
+
+  // Move nodes
+  nodes.forEach(n => {
+    n.x += n.vx; n.y += n.vy;
+    if (n.x < 0 || n.x > canvas.width) n.vx *= -1;
+    if (n.y < 0 || n.y > canvas.height) n.vy *= -1;
+  });
+
+  // Draw connections between nearby nodes
+  for (let i = 0; i < nodes.length; i++) {
+    for (let j = i + 1; j < nodes.length; j++) {
+      const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+      const dist = Math.sqrt(dx*dx + dy*dy);
+      if (dist < 130) {
+        const alpha = (1 - dist / 130) * 0.12;
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.strokeStyle = `rgba(13,110,110,${alpha})`;
+        ctx.lineWidth = 0.8;
+        ctx.stroke();
+      }
+    }
+  }
+
+  // Draw nodes
+  nodes.forEach(n => {
+    const pulse = 0.35 + 0.25 * Math.sin(t * 0.03 + n.ph);
+    ctx.beginPath();
+    ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(${n.color},${pulse})`;
+    ctx.fill();
+  });
+
+  // DNA helix strands on right side
+  const hx = canvas.width * 0.72;
+  const hy = canvas.height * 0.5;
+  const hHeight = Math.min(canvas.height * 0.65, 420);
+  for (let i = 0; i < 30; i++) {
+    const progress = i / 29;
+    const y = hy - hHeight / 2 + progress * hHeight;
+    const wave = Math.sin(progress * Math.PI * 3 + t * 0.025) * 35;
+    const wave2 = Math.sin(progress * Math.PI * 3 + t * 0.025 + Math.PI) * 35;
+    const alpha = 0.15 + 0.1 * Math.sin(progress * Math.PI);
+
+    // Left strand
+    ctx.beginPath();
+    ctx.arc(hx + wave, y, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(13,110,110,${alpha * 1.5})`;
+    ctx.fill();
+
+    // Right strand
+    ctx.beginPath();
+    ctx.arc(hx + wave2, y, 2.5, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(184,150,46,${alpha})`;
+    ctx.fill();
+
+    // Cross rungs every 4 steps
+    if (i % 4 === 0) {
+      ctx.beginPath();
+      ctx.moveTo(hx + wave, y);
+      ctx.lineTo(hx + wave2, y);
+      ctx.strokeStyle = `rgba(255,255,255,${alpha * 0.4})`;
+      ctx.lineWidth = 0.8;
+      ctx.stroke();
+    }
+  }
+
+  // Pulse rings
+  rings.forEach(ring => {
+    ring.tick++;
+    if (ring.tick < ring.delay) return;
+    ring.r += ring.spd;
+    if (ring.r > ring.max) ring.r = 0;
+    const prog = ring.r / ring.max;
+    const alpha = (1 - prog) * 0.1;
+    ctx.beginPath();
+    ctx.arc(ring.cx * canvas.width, ring.cy * canvas.height, ring.r, 0, Math.PI * 2);
+    ctx.strokeStyle = `rgba(${ring.color},${alpha})`;
+    ctx.lineWidth = 1.5;
+    ctx.stroke();
+  });
+
+  // Mouse glow
+  const g = ctx.createRadialGradient(mx, my, 0, mx, my, 160);
+  g.addColorStop(0, 'rgba(13,110,110,0.07)');
+  g.addColorStop(1, 'rgba(13,110,110,0)');
+  ctx.fillStyle = g; ctx.fillRect(0, 0, canvas.width, canvas.height);
+})();
+
+// GSAP hero entrance
+gsap.registerPlugin(ScrollTrigger);
+gsap.from('.hero-eyebrow', { opacity: 0, y: 14, duration: 0.7, delay: 0.3 });
+gsap.from('.ht',           { opacity: 0, y: 30, duration: 1.0, delay: 0.5 });
+gsap.from('.hero-rule',    { opacity: 0, scaleX: 0, duration: 0.8, delay: 0.85, transformOrigin: 'left' });
+gsap.from('.hero-desc',    { opacity: 0, y: 18, duration: 0.8, delay: 0.95 });
+gsap.from('.hero-btns',    { opacity: 0, y: 16, duration: 0.7, delay: 1.15 });
+gsap.from('.hero-stats',   { opacity: 0, y: 14, duration: 0.7, delay: 1.35 });
+gsap.from('.hero-card',    { opacity: 0, x: 52, duration: 1.1, delay: 0.8, ease: 'power2.out' });
+
+// Media logos stagger
+gsap.from('.media-logo', {
+  opacity: 0, y: 10, duration: 0.5, stagger: 0.05, delay: 0.3,
+  scrollTrigger: { trigger: '#media-strip', start: 'top 90%' }
+});
+
+// Intersection Observer — single system
+const io = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const siblings = Array.from(entry.target.parentElement.querySelectorAll('.rv,.rv-l,.rv-r'));
+    const idx = Math.max(0, siblings.indexOf(entry.target));
+    setTimeout(() => entry.target.classList.add('on'), idx * 110);
+    io.unobserve(entry.target);
+  });
+}, { threshold: 0.07, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.rv,.rv-l,.rv-r').forEach(el => io.observe(el));
+
+// Navbar
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+}, { passive: true });
+
+// FAQ
+document.querySelectorAll('.faq-q').forEach(q => {
+  q.addEventListener('click', () => {
+    const item = q.parentElement, isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+  });
+});
+</script>
+</body>
+</html>
